@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block navigation %}{% endblock %}
+
+{% block body %}
+<div class="container col-md-5 text-center mt-3">
+<form class="card p-3 bg-info" method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="text text-danger">Login</h1>
+
+    <label for="inputUsername">Username</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" name="_remember_me"> Remember me
+        </label>
+    </div>
+
+    <div class="col-md-3 ">
+        <button class="btn btn-lg btn-primary text-center" type="submit">
+            Login
+        </button>
+    </div>
+    <br>
+</form>
+<a class="btn btn-success mt-4" href="{{ path('app_register')}}">Register new account</a>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

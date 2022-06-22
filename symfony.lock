@@ -20,6 +20,9 @@
     "doctrine/common": {
         "version": "3.3.0"
     },
+    "doctrine/data-fixtures": {
+        "version": "1.5.3"
+    },
     "doctrine/dbal": {
         "version": "3.3.6"
     },
@@ -38,6 +41,18 @@
             "./config/packages/doctrine.yaml",
             "./src/Entity/.gitignore",
             "./src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "1f5514cfa15b947298df4d771e694e578d4c204d"
+        },
+        "files": [
+            "./src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -259,9 +274,6 @@
             "./config/packages/debug.yaml"
         ]
     },
-    "symfony/debug-pack": {
-        "version": "v1.0.10"
-    },
     "symfony/dependency-injection": {
         "version": "v5.3.14"
     },
@@ -398,9 +410,6 @@
     "symfony/options-resolver": {
         "version": "v5.3.14"
     },
-    "symfony/orm-pack": {
-        "version": "v2.2.0"
-    },
     "symfony/password-hasher": {
         "version": "v5.3.14"
     },
@@ -445,9 +454,6 @@
     },
     "symfony/process": {
         "version": "v5.3.14"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.6"
     },
     "symfony/property-access": {
         "version": "v5.3.14"
@@ -501,9 +507,6 @@
     "symfony/serializer": {
         "version": "v5.3.14"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.4"
-    },
     "symfony/service-contracts": {
         "version": "v2.5.1"
     },
@@ -512,9 +515,6 @@
     },
     "symfony/string": {
         "version": "v5.3.14"
-    },
-    "symfony/test-pack": {
-        "version": "1.0.10"
     },
     "symfony/translation": {
         "version": "5.3",
@@ -547,9 +547,6 @@
             "./config/packages/twig.yaml",
             "./templates/base.html.twig"
         ]
-    },
-    "symfony/twig-pack": {
-        "version": "v1.0.1"
     },
     "symfony/validator": {
         "version": "5.3",

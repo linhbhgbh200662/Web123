@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container col-md-6 text-center mt-3">
+    <h1 class="text text-success">Course List</h1>
+    <a href="{{ path('add_course')}}">
+        <img src="{{ asset('images/icons/add.jpg')}}" width="80" height="30">
+    </a>
+    <table class="table table-primary mt-3">
+        <thead>
+          <tr>
+            <th>Course Id</th>
+            <th>Course Title</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for course in courses %}
+             <tr>
+                 <td>{{ course.id }}</td>
+                 <td>
+                    <a href="{{ path('view_course_by_id', {'id': course.id })}}">
+                        {{ course.name }}
+                    </a>
+                 </td>
+                 <td>
+                    <a class="text-decoration-none" href="{{ path('edit_course', {'id': course.id })}}">
+                        <img src="{{ asset('images/icons/edit.png') }}" width="30" height="30" alt="Edit">
+                    </a>
+                    <a class="text-decoration-none" href="{{ path('delete_course', {'id': course.id })}}"
+                    onclick="return confirm('Are you sure to delete this course ?');"
+                    >
+                        <img src="{{ asset('images/icons/delete.png') }}" width="30" height="30" alt="Edit">
+                    </a>
+                 </td>
+             </tr>
+         {% endfor %}
+        </tbody>
+    <table>
+</div>
+{% endblock %}
